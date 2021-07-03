@@ -1,0 +1,278 @@
+/* ======== Universal ========= */
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f0f2f5;
+  font-size: 15px;
+  transition: all 0.5s;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.floatRight {
+  float: right;
+}
+/* ======== Header ========= */
+header {
+  text-align: center;
+  background: #2d4a22;
+  padding: 2rem 0 8rem;
+  transition: all 0.5s;
+}
+h1 {
+  font-weight: 350;
+  margin-top: 0.7em;
+}
+
+button#darkmode {
+  background: 0;
+  border: 1px solid black;
+  /* margin-left: 9em; */
+  cursor: pointer;
+  position: absolute;
+  top: 25px;
+  right: 20%;
+  transition: all 0.5s;
+}
+
+/* ======== Corpo ========= */
+#container {
+  width: min(90%, 800px);
+  margin: auto;
+  margin-top: -10em;
+}
+
+/* ======== Blocos ========= */
+
+h2 {
+  font-weight: 400;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.block {
+  background-color: white;
+  margin: 2.5em 0em;
+  padding: 1em 2em;
+  border-radius: 0.3em;
+}
+
+.block.total {
+  background-color: #49aa26;
+  color: white;
+  transition: all 0.5s;
+}
+
+/* ======== Transações========= */
+a {
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #49aa26;
+}
+
+a:hover {
+  color: #2d4a22;
+}
+
+#data-table {
+  display: block;
+  overflow-x: auto;
+}
+
+.remove-button img {
+  cursor: pointer;
+}
+td.remove-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-left: 0px;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  border-spacing: 0 0.5rem;
+  color: gray;
+}
+
+#head {
+  opacity: 1;
+}
+
+th {
+  font-weight: normal;
+  padding: 0.5em 1em;
+  background-color: white;
+}
+
+td {
+  padding: 0.5em 1em;
+  background-color: white;
+}
+
+tr {
+  opacity: 0.7;
+}
+
+tr:hover {
+  opacity: 1;
+}
+
+thead {
+  font-weight: 200;
+}
+
+.income {
+  color: #49aa26;
+}
+
+.expense {
+  color: red;
+}
+
+/* ======== Modal ========= */
+
+#modal-background {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#modal-background.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#modal-form {
+  background-color: seashell;
+  padding: 2.5em;
+  max-width: 500px;
+  width: 85%;
+}
+
+input {
+  border: none;
+  padding: 10px;
+  border-radius: 0.2;
+  width: 100%;
+  margin-top: 0.5em;
+  outline: 0;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.submit-button {
+  width: 40%;
+
+  cursor: pointer;
+  margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 0.25em;
+}
+
+.submit-button.submit {
+  background-color: #49aa26;
+  color: #f0f2f5;
+}
+
+.submit-button.submit:hover {
+  background-color: #00ff00;
+}
+.submit-button.cancel {
+  color: red;
+  border: 1px solid red;
+  opacity: 0.9;
+}
+
+.submit-button.cancel:hover {
+  color: #990000;
+  border: 1px solid #990000;
+  opacity: 0.9;
+}
+
+small {
+  opacity: 0.7;
+}
+
+/* ======== Rodapé ========= */
+footer {
+  text-align: center;
+  margin-top: 3em;
+  font-weight: 300;
+}
+
+/* ======== DarkMode ========= */
+
+body.dark {
+  background-color: #303030;
+}
+
+header.dark {
+  background-color: #103814;
+}
+
+footer.dark {
+  color: white;
+}
+
+a.dark {
+  color: #49aa26;
+}
+
+a.dark:hover {
+  color: #2d4a22;
+}
+
+th.dark,
+td.dark {
+  background-color: #bfbfbf;
+}
+
+.block.dark {
+  background-color: #bfbfbf;
+}
+
+.block.total.dark {
+  background-color: #2d4a22;
+  color: gainsboro;
+}
+
+/* ======== Responsividade ========= */
+
+@media (min-width: 800px) {
+  #data-blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}

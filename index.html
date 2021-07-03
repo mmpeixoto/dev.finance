@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dev.finance</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="/assets/logo.svg" alt="Logo dev.finance" />
+      <button onclick="DarkMode.toggleDarkMode()" id="darkmode">
+        <img src="assets/darkmode.svg" alt="Botao dark mode" />
+      </button>
+    </header>
+    <main id="container">
+      <div id="data-blocks">
+        <p class="sr-only">Balanço</p>
+        <div class="block">
+          <h2>Entradas</h2>
+          <img src="assets/income.svg" class="floatRight" alt="" />
+          <h1 id="income-block"></h1>
+        </div>
+        <div class="block">
+          <h2>Saídas</h2>
+          <img src="assets/expense.svg" class="floatRight" alt="" />
+          <h1 id="expense-block"></h1>
+        </div>
+        <div class="block total">
+          <h2>Total</h2>
+          <img src="assets/total.svg" class="floatRight" alt="aa" />
+          <h1 id="total-block"></h1>
+        </div>
+      </div>
+      <div id="data-table">
+        <p class="sr-only">Transaçoes</p>
+        <a href="#" onclick="Modal.toggle()">+ Nova transação</a>
+        <table>
+          <thead>
+            <tr id="head">
+              <th>Descrição</th>
+              <th>Valor</th>
+              <th>Data</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="table-container"></tbody>
+        </table>
+      </div>
+    </main>
+    <div id="modal-background" class="">
+      <div id="modal-form">
+        <h2>Nova transação</h2>
+        <div id="form">
+          <form onsubmit="formCatcher.catcher">
+            <label for="description" class="sr-only">Descrição</label>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              placeholder="Descrição"
+            />
+
+            <label for="value" class="sr-only">Valor</label>
+            <input
+              type="number"
+              id="value"
+              name="value"
+              placeholder="R$0,00"
+              step="0.01"
+            />
+            <small>Use o sinal - para despesas e + para ganhos</small>
+
+            <label for="date" class="sr-only">Data</label>
+            <input type="date" id="date" name="date" />
+            <div class="buttons">
+              <a class="submit-button cancel" onclick="Modal.toggle()">
+                Cancelar
+              </a>
+              <input class="submit-button submit" type="submit" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer>dev.finance$&#8482;</footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
