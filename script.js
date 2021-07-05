@@ -16,6 +16,12 @@ const DarkMode = {
     document.getElementsByTagName("a")[0].classList.toggle("dark");
     document.getElementsByTagName("footer")[0].classList.toggle("dark");
     document.querySelector("#modal-form").classList.toggle("dark");
+    document.querySelector("#modal-language-set").classList.toggle("dark");
+
+    const ls = document.querySelectorAll(".language-selector");
+    for (let index4 in ls) {
+      ls[index4].classList.toggle("dark");
+    }
 
     const td = document.getElementsByTagName("td");
     for (let index in td) {
