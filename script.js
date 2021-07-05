@@ -26,7 +26,6 @@ const DarkMode = {
     }
 
     let source = document.querySelector("#darkmode img").getAttribute("src");
-    console.log(source);
     document
       .querySelector("#darkmode img")
       .setAttribute(
@@ -93,6 +92,7 @@ const DOM = {
     tr.innerHTML = DOM.innerHTMLTransaction(transaction);
     container.appendChild(tr);
   },
+
   innerHTMLTransaction(transaction) {
     let className;
     if (transaction.amount > 0) {
@@ -113,25 +113,64 @@ const DOM = {
 
     return html;
   },
+  resetTransaction(){
+    let container = document.querySelector("#table-container");
+    container.innerHTML = '';
+  },
+
+  resetTransactionsBlock(){
+    expense = 0
+    income = 0
+    total = 0
+    Transaction.income(0);
+    Transaction.expenses(0);
+    Transaction.total();
+  }
 };
 
+const workFlow ={
+  init(){
+    for (let index in transactions) {
+      DOM.addTransaction(transactions[index]);
+      if (transactions[index].amount > 0) {
+        Transaction.income(transactions[index].amount);
+      } else if (transactions[index].amount < 0) {
+        Transaction.expenses(transactions[index].amount);
+      }
+      Transaction.total();
+    }    
+  },
+  addAnother(){
+    DOM.resetTransaction()
+    DOM.resetTransactionsBlock()
+    workFlow.init();
+  }
+}
+
 const formCatcher = {
+  description: document.querySelector("input#description"),
+  amount: document.querySelector("input#amount"),
+  date: document.querySelector("input#date"),
+
   catcher(event) {
     event.preventDefault();
-    console.log(event);
+    transactions.push(formCatcher.getValues())
+    workFlow.addAnother()
   },
+
+  getValues(){
+    return{
+      description: formCatcher.description.value,
+      amount: Number(formCatcher.amount.value),
+      date: formCatcher.date.value
+    }
+
+  }
+
 };
 
 var income = 0;
 var expense = 0;
 var total = 0;
 
-for (let index in transactions) {
-  DOM.addTransaction(transactions[index]);
-  if (transactions[index].amount > 0) {
-    Transaction.income(transactions[index].amount);
-  } else if (transactions[index].amount < 0) {
-    Transaction.expenses(transactions[index].amount);
-  }
-  Transaction.total();
-}
+workFlow.init()
