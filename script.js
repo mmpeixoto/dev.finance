@@ -2,6 +2,10 @@ const Modal = {
   toggle() {
     document.querySelector("#modal-background").classList.toggle("active");
   },
+
+  remove() {
+    document.querySelector("#modal-background").classList.remove("active");
+  },
 };
 
 const DarkMode = {
@@ -62,7 +66,6 @@ const Transaction = {
   },
   expenses(value) {
     expense += value;
-    console.log(expense);
 
     const block = document.querySelector("#expense-block");
     block.innerText = `R$${Math.abs(expense).toFixed(2)}`;

@@ -49,6 +49,15 @@ button#darkmode {
   right: 20%;
   transition: all 0.5s;
 }
+button#language-selector {
+  background: 0;
+  border: 1px solid black;
+  /* margin-left: 9em; */
+  cursor: pointer;
+  position: absolute;
+  top: 25px;
+  left: 20%;
+}
 
 /* ======== Corpo ========= */
 #container {
@@ -230,6 +239,42 @@ input {
 
 small {
   opacity: 0.7;
+}
+
+#modal-language-set {
+  width: 170px;
+  height: 100px;
+  background-color: seashell;
+  position: absolute;
+  top: 25px;
+  left: calc(20% + 36px);
+  border: 3px solid #49aa26;
+  border-radius: 0.3em;
+  opacity: 0;
+  visibility: hidden;
+}
+#modal-language-set.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.language-selector {
+  width: 100%;
+  border: 1px solid #49aa26;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  background-color: white;
+  border-radius: 0.3em;
+  transition: all 0.2s;
+}
+.language-selector:hover {
+  background-color: #49aa26;
+  color: white;
 }
 
 /* ======== Rodapé ========= */

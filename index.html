@@ -17,31 +17,36 @@
     <header>
       <img src="/assets/logo.svg" alt="Logo dev.finance" />
       <button onclick="DarkMode.toggleDarkMode()" id="darkmode">
-        <img src="assets/darkmode.svg" alt="Botao dark mode" />
+        <img src="assets/darkmode.svg" alt=" dark mode" />
+      </button>
+      <button onclick="LanguageModal.toggle()" id="language-selector">
+        <img src="assets/language.svg" alt="Language selector" />
       </button>
     </header>
-    <main id="container">
+    <main onclick="LanguageModal.remove()" id="container">
       <div id="data-blocks">
-        <p class="sr-only">Balanço</p>
+        <p class="sr-only balance">Balanço</p>
         <div onclick="TransactionFilter.filterIncome()" class="block">
-          <h2>Entradas</h2>
+          <h2 id="income-block-translate">Entradas</h2>
           <img src="assets/income.svg" class="floatRight" alt="" />
           <h1 id="income-block">R$0.00</h1>
         </div>
         <div onclick="TransactionFilter.filterExpense()" class="block">
-          <h2>Saídas</h2>
+          <h2 id="expense-block-translate">Saídas</h2>
           <img src="assets/expense.svg" class="floatRight" alt="" />
           <h1 id="expense-block">R$0.00</h1>
         </div>
         <div onclick="TransactionFilter.filterTotal()" class="block total">
-          <h2>Total</h2>
+          <h2 id="total-block-translate">Total</h2>
           <img src="assets/total.svg" class="floatRight" alt="aa" />
           <h1 id="total-block">R$0.00</h1>
         </div>
       </div>
       <div id="data-table">
-        <p class="sr-only">Transaçoes</p>
-        <a href="#" onclick="Modal.toggle()">+ Nova transação</a>
+        <p class="sr-only transactions-translate">Transaçoes</p>
+        <a id="new-transaction" href="#" onclick="Modal.toggle()"
+          >+ Nova transação</a
+        >
         <table>
           <thead>
             <tr id="head">
@@ -87,15 +92,26 @@
               <input
                 class="submit-button submit"
                 type="submit"
+                id="submit"
                 onclick="Modal.toggle()"
+                value="Enviar"
               />
             </div>
           </form>
         </div>
       </div>
     </div>
+    <div id="modal-language-set">
+      <button class="language-selector" onclick="Translate.portuguese()">
+        Português
+      </button>
+      <button class="language-selector" onclick="Translate.english()">
+        English
+      </button>
+    </div>
     <footer>dev.finance$&#8482;</footer>
 
     <script src="script.js"></script>
+    <script src="translate.js"></script>
   </body>
 </html>
