@@ -267,6 +267,23 @@ td.dark {
   color: gainsboro;
 }
 
+#modal-form.dark {
+  background-color: #2e2e2e;
+  color: white;
+}
+
+#modal-form.dark input {
+  background-color: #bfbfbf;
+}
+
+#modal-form.dark .submit-button.submit {
+  background-color: #103814;
+}
+
+#modal-form.dark .submit-button.submit:hover {
+  background-color: #2d4a22;
+}
+
 /* ======== Responsividade ========= */
 
 @media (min-width: 800px) {
