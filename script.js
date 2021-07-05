@@ -95,7 +95,8 @@ const DOM = {
     const tr = document.createElement("tr");
     tr.innerHTML = DOM.innerHTMLTransaction(transaction, transactionIndex);
     container.appendChild(tr);
-    transactionIndex++;
+    console.log(transactionIndex);
+    console.log(typeof transactionIndex);
   },
 
   innerHTMLTransaction(transaction, transactionIndex) {
@@ -140,8 +141,10 @@ const DOM = {
 
 const workFlow = {
   init() {
+    transactionIndex = 0;
     for (let index in transactions) {
-      DOM.addTransaction(transactions[index]);
+      DOM.addTransaction(transactions[index], transactionIndex);
+      transactionIndex++;
       if (transactions[index].amount > 0) {
         Transaction.income(transactions[index].amount);
       } else if (transactions[index].amount < 0) {
