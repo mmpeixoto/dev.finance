@@ -81,6 +81,37 @@ const Transaction = {
   },
 };
 
+const TransactionFilter = {
+  filterIncome() {
+    transactionIndex = 0;
+    DOM.resetTransaction();
+    for (let index in transactions) {
+      if (transactions[index].amount > 0) {
+        DOM.addTransaction(transactions[index], transactionIndex);
+      }
+      transactionIndex++;
+    }
+  },
+  filterExpense() {
+    transactionIndex = 0;
+    DOM.resetTransaction();
+    for (let index in transactions) {
+      if (transactions[index].amount < 0) {
+        DOM.addTransaction(transactions[index], transactionIndex);
+      }
+      transactionIndex++;
+    }
+  },
+  filterTotal() {
+    transactionIndex = 0;
+    DOM.resetTransaction();
+    for (let index in transactions) {
+      DOM.addTransaction(transactions[index], transactionIndex);
+      transactionIndex++;
+    }
+  },
+};
+
 const DOM = {
   addTransaction(transaction, transactionIndex) {
     const container = document.querySelector("#table-container");

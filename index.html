@@ -23,17 +23,17 @@
     <main id="container">
       <div id="data-blocks">
         <p class="sr-only">Balanço</p>
-        <div class="block">
+        <div onclick="TransactionFilter.filterIncome()" class="block">
           <h2>Entradas</h2>
           <img src="assets/income.svg" class="floatRight" alt="" />
           <h1 id="income-block">R$0.00</h1>
         </div>
-        <div class="block">
+        <div onclick="TransactionFilter.filterExpense()" class="block">
           <h2>Saídas</h2>
           <img src="assets/expense.svg" class="floatRight" alt="" />
           <h1 id="expense-block">R$0.00</h1>
         </div>
-        <div class="block total">
+        <div onclick="TransactionFilter.filterTotal()" class="block total">
           <h2>Total</h2>
           <img src="assets/total.svg" class="floatRight" alt="aa" />
           <h1 id="total-block">R$0.00</h1>

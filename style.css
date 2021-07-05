@@ -70,6 +70,7 @@ h2 {
   margin: 2.5em 0em;
   padding: 1em 2em;
   border-radius: 0.3em;
+  cursor: pointer;
 }
 
 .block.total {
