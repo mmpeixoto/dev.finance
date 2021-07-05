@@ -18,11 +18,6 @@ const DarkMode = {
     document.querySelector("#modal-form").classList.toggle("dark");
     document.querySelector("#modal-language-set").classList.toggle("dark");
 
-    const ls = document.querySelectorAll(".language-selector");
-    for (let index4 in ls) {
-      ls[index4].classList.toggle("dark");
-    }
-
     const td = document.getElementsByTagName("td");
     for (let index in td) {
       td[index]?.classList?.toggle("dark");
@@ -35,6 +30,11 @@ const DarkMode = {
     const block = document.getElementsByClassName("block");
     for (let index3 in block) {
       block[index3]?.classList?.toggle("dark");
+    }
+
+    const ls = document.querySelectorAll(".language-selector");
+    for (let index4 in ls) {
+      ls[index4].classList.toggle("dark");
     }
 
     let source = document.querySelector("#darkmode img").getAttribute("src");
