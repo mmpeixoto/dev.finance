@@ -78,6 +78,13 @@ h2 {
   transition: all 0.5s;
 }
 
+.block.total.bad-credit {
+  background-color: #990000;
+}
+
+.block.total.dark.bad-credit {
+  background-color: #600000;
+}
 /* ======== Transações========= */
 a {
   text-decoration: none;

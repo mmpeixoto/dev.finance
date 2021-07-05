@@ -80,6 +80,12 @@ const Transaction = {
 
     const block = document.querySelector("#total-block");
     block.innerText = `R$${total.toFixed(2)}`;
+
+    if (total < 0) {
+      document.querySelector(".total.block").classList.add("bad-credit");
+    } else if (total >= 0) {
+      document.querySelector(".total.block").classList.remove("bad-credit");
+    }
   },
 };
 
