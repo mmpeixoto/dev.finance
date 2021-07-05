@@ -72,5 +72,5 @@ const LanguageModal = {
 };
 
 if (StorageLanguage.get() == "en") {
-  translate.english();
+  Translate.english();
 }
