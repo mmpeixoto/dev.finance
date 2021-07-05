@@ -22,7 +22,7 @@ const Translate = {
     document.querySelector("label[for = 'amount']").innerText = "Valor";
     document.querySelector("label[for = 'date']").innerText = "Data";
     StorageLanguage.set("pt");
-    LanguageModal.toggle();
+    LanguageModal.remove();
   },
 
   english() {
@@ -48,7 +48,7 @@ const Translate = {
     document.querySelector("label[for = 'amount']").innerText = "Amount";
     document.querySelector("label[for = 'date']").innerText = "Date";
     StorageLanguage.set("en");
-    LanguageModal.toggle();
+    LanguageModal.remove();
   },
 };
 
