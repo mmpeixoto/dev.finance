@@ -59,7 +59,7 @@
       <div id="modal-form">
         <h2>Nova transação</h2>
         <div id="form">
-          <form onsubmit="formCatcher.catcher">
+          <form onsubmit="formCatcher.catcher(event)">
             <label for="description" class="sr-only">Descrição</label>
             <input
               type="text"
@@ -68,11 +68,11 @@
               placeholder="Descrição"
             />
 
-            <label for="value" class="sr-only">Valor</label>
+            <label for="amount" class="sr-only">Valor</label>
             <input
               type="number"
-              id="value"
-              name="value"
+              id="amount"
+              name="amount"
               placeholder="R$0,00"
               step="0.01"
             />
@@ -84,7 +84,7 @@
               <a class="submit-button cancel" onclick="Modal.toggle()">
                 Cancelar
               </a>
-              <input class="submit-button submit" type="submit" />
+              <input class="submit-button submit" type="submit" onclick="Modal.toggle()" />
             </div>
           </form>
         </div>
