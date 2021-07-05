@@ -39,28 +39,19 @@ const DarkMode = {
   },
 };
 
-const transactions = [
-  {
-    description: "Luz",
-    amount: -500.0,
-    date: "25/01/2021",
+const Storage = {
+  get() {
+    return JSON.parse(localStorage.getItem("dev.finances.transactions")) || [];
   },
-  {
-    description: "Salário",
-    amount: 6000.0,
-    date: "25/01/2021",
+  set(transactions) {
+    localStorage.setItem(
+      "dev.finances.transactions",
+      JSON.stringify(transactions)
+    );
   },
-  {
-    description: "Net",
-    amount: -400.0,
-    date: "25/01/2021",
-  },
-  {
-    description: "Bitcoin",
-    amount: 200.0,
-    date: "25/01/2021",
-  },
-];
+};
+
+const transactions = Storage.get();
 
 const Transaction = {
   income(value) {
@@ -71,6 +62,7 @@ const Transaction = {
   },
   expenses(value) {
     expense += value;
+    console.log(expense);
 
     const block = document.querySelector("#expense-block");
     block.innerText = `R$${Math.abs(expense).toFixed(2)}`;
@@ -95,8 +87,6 @@ const DOM = {
     const tr = document.createElement("tr");
     tr.innerHTML = DOM.innerHTMLTransaction(transaction, transactionIndex);
     container.appendChild(tr);
-    console.log(transactionIndex);
-    console.log(typeof transactionIndex);
   },
 
   innerHTMLTransaction(transaction, transactionIndex) {
@@ -156,6 +146,7 @@ const workFlow = {
   addAnother() {
     DOM.resetTransaction();
     DOM.resetTransactionsBlock();
+    Storage.set(transactions);
     workFlow.init();
   },
 };
